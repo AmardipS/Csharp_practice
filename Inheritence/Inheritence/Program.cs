@@ -38,6 +38,9 @@ namespace Inheritence
         }
     }
 
+    // Inheritence provides the additional functionalities from main class to derived class
+    // Child class is inherited to the Patient class
+    // The Child class can utilize the functionalities from the Patient class
     class Child : Patient
     {
         public void Inoculate()
