@@ -7,6 +7,19 @@ using System.Threading.Tasks;
 
 namespace Threads_Practice
 {
+    // THREADS
+    // Threads are light weight processes
+    // A thread is defined as the execution path of a program
+    // Each thread defines a unique flow of control
+    // If an application involves complicated and time consuming operations, 
+        // then it is often helpful to set different execution paths of threads, 
+        // with each thread performing a particular job.
+    // Main thread is the mother thread of all the child threads
+
+    // MULTI-THREADING
+    // Where multiple threads work simultaneously
+    // It is a process to achieve multitasking
+    
     class Program
     {
         
@@ -14,9 +27,13 @@ namespace Threads_Practice
         {
             Program p = new Program();
 
+            // Instanciating 3 different threads
+            // and assigning different fuctions to execute within that thread 
             Thread t1 = new Thread(func1);
             Thread t2 = new Thread(p.func2);
             Thread t3 = new Thread(func3);
+
+            // Starting the threads
             t1.Start();
             t2.Start();
             t3.Start();
@@ -40,9 +57,10 @@ namespace Threads_Practice
             {
                 Console.WriteLine("Function2: {0}", i);
 
+                // Setting the condition for the thread to go to sleep state
                 if (i == 25)
                 {
-                    Console.WriteLine("Thread is going to sleep for 8 secs.");
+                    Console.WriteLine("Thread 2 is going to sleep for 8 secs.");
                     Thread.Sleep(8000);
                 }
             }
