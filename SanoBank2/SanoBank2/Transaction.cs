@@ -18,10 +18,5 @@ namespace SanoBank2
             this.Date = date;
             this.Note = note;
         }
-
-        public static implicit operator Transaction(List<Transaction> v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

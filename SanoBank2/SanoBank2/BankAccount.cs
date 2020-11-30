@@ -47,7 +47,29 @@ namespace SanoBank2
         }
         public void MakeWithdrawal(decimal amount, DateTime date, string note)
         {
+            if (amount > Balance)
+            {
+                throw new ArgumentOutOfRangeException(nameof(amount), "Not enough fund available.");
+            }
+            var withdraw = new Transaction(-amount, DateTime.Now, note);
+            allTransaction.Add(withdraw);
+        }
 
+        // GET ACCOUNT HISTORY
+        public string GetAccountHistory()
+        {
+            var report = new StringBuilder();
+
+            decimal balance = 0;
+            report.AppendLine("Date\t\tAmount\tBalance\tNote");
+
+            foreach (var item in allTransaction)
+            {
+                balance += item.Amount;
+                report.AppendLine($"{item.Date.ToShortDateString()}\t{item.Amount}\t{balance}\t{item.Note}");
+            }
+
+            return report.ToString();
         }
 
     }
