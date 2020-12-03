@@ -72,6 +72,11 @@ namespace MiniBank
             }
 
             return report.ToString();
+        }
+
+        // CALCULATION AT THE END OF THE MONTH
+        public virtual void PerformMonthEndTransactions()
+        {
 
         }
 
