@@ -23,12 +23,16 @@ namespace MiniBank
 
             var savings = new InterestEarningAccount("Savings account", 50000);
             savings.AmountDeposit(10000, DateTime.Now, "Monthly savings");
-            savings.AmountWithdrawal(55000, DateTime.Now, "For my new house.");
+            savings.AmountWithdrawal(50000, DateTime.Now, "For my new house.");
             savings.PerformMonthEndTransactions();
             Console.WriteLine(savings.GetTransactionHistory());
 
-            var lineOfCredit = new LineOfCreditAccount("Line of Credit", 1000);
-            lineOfCredit.AmountWithdrawal(10000, DateTime.Now, "Vaction");
+            var lineOfCredit = new LineOfCreditAccount("line of credit", 0, 2000);
+            // How much is too much to borrow?
+            lineOfCredit.AmountWithdrawal(1000m, DateTime.Now, "Take out monthly advance");
+            lineOfCredit.AmountDeposit(50m, DateTime.Now, "Pay back small amount");
+            lineOfCredit.AmountWithdrawal(5000m, DateTime.Now, "Emergency funds for repairs");
+            lineOfCredit.AmountDeposit(150m, DateTime.Now, "Partial restoration on repairs");
             lineOfCredit.PerformMonthEndTransactions();
             Console.WriteLine(lineOfCredit.GetTransactionHistory());
         }
